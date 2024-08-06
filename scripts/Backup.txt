@@ -1,0 +1,28 @@
+$(function(automatic){
+	
+	let banner_index = 0; 
+	
+	let bannerimages = $('.slides').children('img');
+	
+	function change_banner(direction){
+		$(bannerimages).fadeOut(300);
+		if (direction) {
+			if (banner_index >= bannerimages.length-1)
+				banner_index = -1;
+			$(bannerimages[++banner_index]).fadeOut(300);
+		} else {
+			if (banner_index <= 0)
+				banner_index = bannerimages.length;
+			$(bannerimages[--banner_index]).fadeIn(300);
+		}
+	}
+	
+		
+	$( ".subpic1" ).on( "swipeleft",  function(){
+		change_banner(0) 
+	});
+	$( ".subpic1" ).on( "swiperight", function(){
+		change_banner(1) 
+	});
+setInterval(change_banner, 3200);
+});

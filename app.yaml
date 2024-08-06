@@ -1,0 +1,23 @@
+runtime: php55
+api_version: 1
+
+handlers:
+# Serve images as static resources.
+- url: /(.+\.(gif|png|jpg|css|js|webp|ico))$
+  static_files: \1
+  upload: .+\.(gif|png|jpg|css|js|webp|ico)$
+  application_readable: true
+  secure: always
+
+# Serve php scripts.
+- url: /(.+\.php)$
+  script: \1
+  secure: always
+  
+- url: /
+  script: index.php
+  secure: always
+
+- url: /google2d2da6935719196d.html
+  script: google2d2da6935719196d.html
+  secure: always
